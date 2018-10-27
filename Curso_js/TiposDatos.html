@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Tipos de datos</title>
+</head>
+<body>
+	<script type="text/javascript">
+		//Tipos de datos
+			//Numerico
+				var edad=19.254; //float
+				var numero="12"; //true- js reconoce a 12 entre comillas como numero y no cadena de caracteres
+			//String
+				var nombre="Camilo";
+				var apellido="Panche";
+				document.write(nombre+" "+apellido);//se puede concatenar cadenas de texto
+				var texto="Este es mi curso de \"javascript\"" //con \" se puede poner comillas dobles dentro de comillas dobles
+				var texto1="Este es mi curso de \'javascript\'"  //con \' se puede poner comillas simples dentro de comillas dobles
+				var texto2='Este es mi curso de "javascript"'  //las comillas dobles pueden ir dentro de comillas simples en un string 
+			// Array - arreglos
+				var compas=[" olber"," gordo"," panche",19,true]; //las posiciones en un array van desde cero'0'
+				document.write(compas[1]); //de esta manera dentro de los brakets ponemos la posicion que queremos se muestre en pantalla
+			// Object - objeto
+				var objeto={
+					color: "black",
+					size: 12
+				}
+			// Boolean- boleano
+				var boleano = false;
+			//undefined
+				var pancheCamilo; // la variable pancheCamilo esta indefinida, ni se le ha asignado un valor
+			//Null
+				var numero2= 10;
+					//Para convertir el valor de la variable numero2 solo es necesario volver a declararla Null
+				var numero2=null;
+			//NaN
+				var texto3="Hi";
+				document.writen(texto3 * 2); //NaN quiere decir que la acción es inválida "no se puede multiplicar un string con un valor númerico"
+	</script>
+</body>
+</html>

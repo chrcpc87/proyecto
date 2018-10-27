@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title> Ejercicio con Funciones y Formularios</title>
+</head>
+<body>
+	<form action="">
+		<input type="text" id="numero1">
+		<input type="text" id="numero2">
+		<input type="button" value="Sumar" onclick="alert (suma());">
+	</form>
+	<script type="text/javascript">
+		var suma=function(num1,num2){
+			var num1=parseFloat(document.getElementById("numero1").value);
+			var num2=parseFloat(document.getElementById("numero2").value);
+			var resultado = num1+num2;
+			//alert (resultado);
+			return resultado;
+		}
+	</script>
+</body>
+</html>

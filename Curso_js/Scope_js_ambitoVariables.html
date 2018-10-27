@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Scope Javascript</title>
+</head>
+<body>
+	<script type="text/javascript">
+		// Global-Podemos acceder a ellas desde cualquier parte del código
+		var variableGlobal="Esta es global";
+		var miFuncion= function(){
+			alert(variableGlobal);
+			variableGlobal="Esta es global, modificada";
+			alert(variableGlobal);
+		}
+		miFuncion();
+		// Función autoinvocada - Todo lo que esté dentro de esta función no puede ser accedido desde el exterior, va a estar protegido. es decir, los programas de terceros no pueden acceder a tu código para modificar las variables o acceder a ellas.(siempre encerrar todo nuestro código para protegerlo un poco mejor)
+		(function(){
+			// Local-Variables creadas denro de una función. Solo pueden ser accedidas adesde su función o una función anidada
+			var otraFuncion=function(){
+				// Una función no podría usar una variable de su elemento hijo
+				var variableLocal="Esta es local";
+				alert(variableLocal);
+				// Una función anidada puede usar una variable de su elemento padre
+				var funcionAnidada=function(){
+					var variableLocal="Esta variable dentro de funcionAnidada";
+					alert (variableLocal);
+				}
+				funcionAnidada();
+		}otraFuncion();
+		}())
+		//alert (variableGlobal);
+	</script>
+</body>
+</html>

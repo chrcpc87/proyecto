@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Trazar rutas entre dos puntos</title>
+	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?v3"></script>
+	<style type="text/css">
+		#mapa{
+			width:700px;
+			height:500px;
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div id="mapa"></div>
+	<script type="text/javascript">
+		navigator.geolocation.getCurrentPosition(fn_ok,fn_error);
+		//mostrar_objeto(navigator);
+		var divMapa=document.getElementById('mapa');
+		function fn_error(){
+				divMapa.innerHTML='Hubo un problema solicitando los datos';
+		}
+		function fn_ok(rta){
+				//mostrar_objeto(rta.coords); //
+				var lat=rta.coords.latitude;
+				var lon=rta.coords.longitude;	
+				//document.write("Latitud: "+lat+" Longitud: "+lon);
+				var gLatLon=new google.maps.LatLng(lat,lon);
+				var objConfig={
+					zoom:17,
+					center: gLatLon
+				}
+				 var gMapa=new google.maps.Map(divMapa,objConfig);
+				var objConfigMarker={
+					position:gLatLon,
+					map:gMapa,
+					animation: google.maps.Animation.DROP,//da una animación de que la chinche cae 
+					draggable: true,//permite arrastrar el marker a nuestra voluntad
+					title: 'Usted está aquí'
+				}	
+				var gMarker=new google.maps.Marker(objConfigMarker);
+					gMarker.setIcon('img/yo1.png');
+			    //divMapa.innerHTML='Tenemos autorización para ver su ubicación';
+				//}
+				//function mostrar_objeto(obj){
+				//	for(var prop in obj){
+				//		document.write(prop+' : '+obj[prop]+'</br>');
+				//	}
+				//}
+				var gCoder=new google.maps.Geocoder();
+				var objInfo={
+					address:'Cra. 103 #77b 31,molinos del viento,bogota'
+				}
+				gCoder.geocode(objInfo, fn_coder);
+				function fn_coder(datos){
+					var coordenadas=datos[0].geometry.location; //obj LatLong
+					var config={
+						map: gMapa,
+						animation: google.maps.Animation.DROP,
+						position:coordenadas,
+						title:'Casa del abue Humberto'
+					}
+					var gMarkerDv=new google.maps.Marker(config);
+						gMarkerDv.setIcon('img/abue1.png');
+					var objHTML={
+						content:'<div style="height:150px;width:300px"><h2>Casa de mi Abue</h2></div>'
+					}
+					var gIW=new google.maps.InfoWindow(objHTML);
+					google.maps.event.addListener(gMarkerDv,'click',function(){
+						gIW.open(gMapa,gMarkerDv);
+					});
+				}
+				var objconfigDR={
+					map:gMapa,
+					suppressMarkers: true
+				}
+				var objConfigDS={
+					origin: gLatLon, //LatLong o String de domicilio
+					destination: objInfo.address,
+					travelMode: google.maps.TravelMode.TRANSIT
+				}
+				var ds=new google.maps.DirectionsService();//obtener coordenadas
+				var dr=new google.maps.DirectionsRenderer(objconfigDR);//traduce coordenadas a la ruta visible
+					ds.route(objConfigDS,fnRutear);
+				function fnRutear(resultados,status){
+					//mostrar linea entre A y B
+					if(status=='OK'){
+						dr.setDirections(resultados);
+					}else{
+						alert('Error: '+status);
+					}
+				}
+		}		
+		//var gIW=new google.maps.InfoWindow(objHTML);
+		//google.maps.event.addListener(gMarketDv,'click',function(){
+		//	gIW.open(gMapa,gMarketDV);
+		//});
+	</script>
+</body>
+</html>

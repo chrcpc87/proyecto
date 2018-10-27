@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Document Object Model</title>
+</head>
+<body>
+	<h1 id="titulo">Titulo de nuestro sitio web</h1>
+	<div id="subtitulo"></div>
+	<p>1.- Lorem ipsum <b>dolor</b> sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	<p id="segundo">2.- Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	<p>3. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+	<script type="text/javascript">
+		//getElementsByTagName En este caso selecciona las etiquetas <p>
+		var elementosP=document.getElementsByTagName("p");
+		//getElementsById En este caso selecciona los elementos del id="segundo"
+		var segundoParrafo=document.getElementById("segundo");
+
+		// 1.- Crear el elemento
+		var elemento=document.createElement("h2");
+		// 2.- Crear un nodo de texto
+		var contenido=document.createTextNode("Creando nodos");
+		// 3.- Añadir el nodo de texto al elemento
+		elemento.appendChild(contenido);
+		// 4.- Agregar atributos al elemento
+		elemento.setAttribute("align","center");
+		// 5.- Agregar el elemento al documento
+		document.getElementById("subtitulo").appendChild(elemento);
+			//ó document.body.appendChild(elemento); para que se cree el nodo en el body
+	</script>
+</body>
+</html>

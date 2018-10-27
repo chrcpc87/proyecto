@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Metodos para cadenas de texto</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var texto="Camilo Panche";
+		// length Nos muestra la cantidad de caracteres de una cadena de texto
+		//var nuevoTexto= texto.length;
+		//substring Nos permite cortar una cadena de texto 
+		//var nuevoTexto= texto.substring(5);
+		//substr Nos permite recortar una cadena de texto desde una caracter hasta otro
+		//var nuevoTexto= texto.substr(0,6);
+		//indexOf Nos dice en que posición se encuentra ubicado el caracter dentro de la cadena de texto, contando de izquierda a derecha
+		var nuevoTexto= texto.indexOf("a");
+		//lastIndexOf indexOf Nos dice en que posición se encuentra ubicado el caracter dentro de la cadena de texto, contando de derecha a izquierda
+		var nuevoTexto= texto.lastIndexOf("a");
+		// replace Nos reemplaza el texto en la variable por el que indiquemos según el ejemplo
+		var nuevoTexto= texto.replace("Christian Correa");
+		//toUpperCase Pone toda nuestra cadena de texto en mayúsculas 
+		var nuevoTexto= texto.toUpperCase();
+		//toLowerCase Pine toda nuestra cadena de texto en minúsculas
+		var nuevoTexto= texto.toLowerCase();
+		document.write(nuevoTexto);
+	</script>
+</body>
+</html>

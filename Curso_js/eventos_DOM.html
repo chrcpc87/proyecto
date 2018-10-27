@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eventos del DOM</title>
+</head>
+<body>
+	<button id="boton">Boton</button>
+	<input type="text" id="input">
+	<a id="boton2" href="http://www.google.com">Google.com</a>
+	<script type="text/javascript">
+		(function(){
+			var saludo=function(){
+				alert("saludo");
+			}
+			var saludo2=function(){
+				alert("saludo2");
+			}
+			var saludo3=function(){
+				console.log('focus');
+			}
+			var saludo4=function(e){
+				console.log('Este evento es tipo: '+e.type);
+				console.log('Este evento se está aplicando a: '+e.target);
+			}
+			var saludos=function(x){
+				console.log('RollUp');
+				x.preventDefault();
+			}
+			var boton=document.getElementById('boton');
+			var boton2=document.getElementById('boton2');
+			// Evento 'click' hace que al hacer click en el boton,se ejecute, en este caso, la función 'saludo'.
+			boton.addEventListener("click",saludo);
+			//Se pueden ejecutar varias funciones con un solo evento
+			boton.addEventListener("click",saludo2);
+			//El evento 'focus' activa la función 'saludo3' al dar clic en el interior del recuadro de texto del input
+			input.addEventListener("focus",saludo3);
+			//El evento 'blur' activa la función 'saludo' al, luego de haber dado clic en el interior del input, dar clic fuera de este... 
+			input.addEventListener("blur",saludo);
+			//El evento 'change' activa la función 'saludo2' al ingresar o cambiar el contenido de un input, y luego dar clic afuera de este.
+			input.addEventListener("change",saludo2);
+			//Con 'removeEventListener' eliminamos el evento 'click' que activa la función 'saludo2'.
+			boton.removeEventListener("click",saludo2);
+			//Con este evento activamos la función 'saludo3'(e.type) que nos muestra por consola que tipo de evento es. Y también nos muestra en consola a que elemento se le esta aplicando el elemento.
+			input.addEventListener("blur",saludo4);
+			//Con este evento activaremos la función'saludos(x)' que tiene en su interior 'x.preventDefault()' que evita que al hacer clic nos envíe al enlace 'Google.com'
+			boton2.addEventListener("click",saludos);
+			//------------Para ver mas eventos visite http://www.w3schools.com/jsref/dom_obj_event.asp
+		}())
+	</script>
+</body>
+</html>

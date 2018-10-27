@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Metodos y propiedades para Arrays</title>
+</head>
+<body>
+	<script type="text/javascript">
+		var amigos=["camilo","olber","gordo","gori"];
+		amigos[amigos.length]="poison";//De esta manera podemos agregar una posicion mas en nuestro array y asignarle un valor. si queremos agregar otra posicion copiamos y pegamos y asignamos un valor
+		amigos[amigos.length]="nicolas";
+		document.write(amigos[5]);
+		amigos.push("chacho","tesla","mono");//con la propiedad push creamos una nueva posicion dandole el valor y posicionandolo al final de nuestro array
+		document.write("Tienes "+amigos.length+" amigos");// con la propiedad length podemos saber cuantas posiciones tenemos en nuestro arreglo
+		amigos.pop();// con el metodo pop eliminaremos la última posición de nuestro array
+
+		//Si queremos unir dos array usamos el metodo concat de la siguiente manera
+		var amigos2=["andres","pedro","henry"];
+		var amigos3=["harold","negro","fernando","alex"];
+
+		var amigosTodos=amigos2.concat(amigos3);
+		document.write(amigosTodos);
+		// con el metodo join podemos separar los valores de que estan en nuestro array con : ; - etc, de la siguiente manera
+		document.write(amigos3.join(" : ")); // o puede ser asi
+		var amigos4 = amigos3.join("|");
+		document.write(amigos4);
+		//para ordenar el array alfabeticamente usamos el metodo sort de la siguiente manera
+		var alpha=amigos3.sort();
+		document.write(alpha);
+		//con el metodo reverse oredenamos de atras para adelante el array de la siguiente forma
+		var reves=amigos3.reverse();
+		document.write(reves);
+	</script>
+</body>
+</html>

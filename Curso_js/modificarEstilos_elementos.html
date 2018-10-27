@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Modificando estilos de los Elementos</title>
+	<style type="text/css">
+		.thumb{
+			width: 200px;
+			transition: 300ms all ease;
+		}
+		.grande{
+			width: 600px;
+		}
+		/*.titulo{
+			border: 1px solid navy;
+			background: #ccc;
+			padding: 10px;
+		}
+		.tituloGrande{
+			font-size: 60px;
+		}*/
+	</style>
+</head>
+<body>
+	<form>
+		<input type="button" value="Cambio de tamaño" onclick="zoom()">
+	</form>
+	<img id="thumb" src="http://lorempixel.com/400/400/" width="400">
+	<!--<h1 id="encabezado" class="titulo tituloGrande">Encabezado</h1>-->
+	<script type="text/javascript">
+		//var encabezado=document.getElementById("encabezado");
+		//encabezado.className="titulo";
+		//encabezado.style.background="navy";
+		//encabezado.style.color="#fff";
+		//encabezado.style.fontSize="80px";
+		//encabezado.className=encabezado.className.replace("tituloGrande","");
+		function zoom(){
+			var thum=document.getElementById("thumb");
+			if (thum.className=="thumb") {
+				thum.className="thumb grande";
+			}else{
+				thum.setAttribute("class","thumb");//tambien se puede usar'thum.className="thumb grande"'
+		    }
+		}
+	</script>
+</body>
+</html>
